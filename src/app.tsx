@@ -1,19 +1,17 @@
+//@Imaginamos
+//Developer: Jorginho Ojeda
+
 import React from 'react';
-import {Text, View} from 'react-native';
+import Router from './navegation';
+import {store} from './redux/store';
+import {Provider} from 'react-redux';
 
-export type Props = {};
+type Props = {};
 const App: React.FC<Props> = () => {
-  const renderHelloAPP = () => {
-    return (
-      <View>
-        <Text>Hello</Text>
-      </View>
-    );
-  };
-
-  const renderUI = () => {
-    return <View>{renderHelloAPP()}</View>;
-  };
-  return renderUI();
+  return (
+    <Provider store={store}>
+      <Router />
+    </Provider>
+  );
 };
 export default App;
