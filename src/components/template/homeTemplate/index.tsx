@@ -52,15 +52,12 @@ const HomeTemplate: React.FC<Props> = ({
           <ContainerMovieRecommend>
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
               {recommendedCard}
-              {recommendedCard}
             </ScrollView>
           </ContainerMovieRecommend>
 
           <ContainerTitleTopRated>{topRatedTitle}</ContainerTitleTopRated>
           <ContainerMovieTopRated>
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-              {topRatedCard}
-              {topRatedCard}
               {topRatedCard}
             </ScrollView>
           </ContainerMovieTopRated>
