@@ -1,4 +1,4 @@
-import {View} from 'react-native';
+import {View, Platform} from 'react-native';
 import {Colors} from '../../_settings';
 import styled from 'styled-components/native';
 
@@ -9,7 +9,6 @@ const Wrapper = styled(View)`
 
 const ContainerImage = styled(View)`
   height: 35%;
-  background-color: blue;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
 `;
@@ -51,8 +50,9 @@ const ContainerItemDetail = styled(View)`
 
 const ContainerToolbar = styled(View)`
   width: 100%;
-  height: 150px;
+  height: 140px;
   position: absolute;
+  top: ${Platform.OS === 'android' ? -39 + 'px' : 0};
 `;
 
 const BackgroundPoster = styled(View)`

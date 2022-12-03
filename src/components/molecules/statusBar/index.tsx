@@ -10,7 +10,7 @@ type Props = {
 const Title: React.FC<Props> = ({backgroundColor, mode}) => {
   return (
     <Wrapper background={backgroundColor || 'transparent'}>
-      <StatusBar barStyle={mode} />
+      <StatusBar barStyle={mode} backgroundColor={backgroundColor} />
     </Wrapper>
   );
 };
