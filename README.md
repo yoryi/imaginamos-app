@@ -28,4 +28,3 @@ $ npm run android
 
 ```
 
-Developer: Jorginho Ojeda
