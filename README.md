@@ -28,3 +28,10 @@ $ npm run android
 
 ```
 
+## Demo
+dark and light mode
+
+<img width="372" alt="ligth" src="https://user-images.githubusercontent.com/16271026/205478130-cd632e39-b26d-48f5-b1f0-08bed32d1083.png">
+
+<img width="374" alt="dark" src="https://user-images.githubusercontent.com/16271026/205478148-ebdadfd2-bbcd-43ef-8ec0-3ff49efac72e.png">
+
