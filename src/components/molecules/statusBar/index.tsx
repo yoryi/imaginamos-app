@@ -1,18 +1,28 @@
 import React from 'react';
 import {Wrapper} from './style';
+import THEME from '../../../themes';
 import {StatusBar} from 'react-native';
+import {useSelector} from 'react-redux';
 
-type Props = {
-  mode: string;
-  backgroundColor?: string;
-};
-
-const Title: React.FC<Props> = ({backgroundColor, mode}) => {
+const StatusBarAPP: React.FC = () => {
+  const stateRedux = useSelector(state => state.ModeApp);
   return (
-    <Wrapper background={backgroundColor || 'transparent'}>
-      <StatusBar barStyle={mode} backgroundColor={backgroundColor} />
+    <Wrapper
+      background={
+        stateRedux.isDark
+          ? THEME.darkTheme.backgroundStatusBar
+          : THEME.ligthTheme.backgroundStatusBar
+      }>
+      <StatusBar
+        barStyle={stateRedux.isDark ? 'light-content' : 'dark-content'}
+        backgroundColor={
+          stateRedux.isDark
+            ? THEME.darkTheme.backgroundStatusBar
+            : THEME.ligthTheme.backgroundStatusBar
+        }
+      />
     </Wrapper>
   );
 };
 
-export default Title;
+export default StatusBarAPP;

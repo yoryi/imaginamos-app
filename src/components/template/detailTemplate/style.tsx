@@ -1,10 +1,9 @@
 import {View, Platform} from 'react-native';
-import {Colors} from '../../_settings';
 import styled from 'styled-components/native';
 
 const Wrapper = styled(View)`
   flex: 1;
-  background-color: ${Colors.BLUE_DARK};
+  background-color: ${(props: {background: string}) => props.background};
 `;
 
 const ContainerImage = styled(View)`

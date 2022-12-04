@@ -11,7 +11,7 @@ const ContainerHeader = styled(View)`
   padding-top: 5px;
   padding-left: 30px;
   padding-right: 30px;
-  background-color: ${Colors.BLUE};
+  background-color: ${(props: {background: string}) => props.background};
 `;
 
 const ContainerBody = styled(View)`
@@ -20,7 +20,7 @@ const ContainerBody = styled(View)`
   margin-top: -20px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  background-color: ${Colors.BLUE_DARK};
+  background-color: ${(props: {background: string}) => props.background};
 `;
 
 const ContainerSpace = styled(View)`
@@ -54,7 +54,6 @@ const ContainerMovieTopRated = styled(View)`
 `;
 
 const ContainerTitle = styled(View)`
-  padding-right: 30%;
   padding-top: 30px;
 `;
 

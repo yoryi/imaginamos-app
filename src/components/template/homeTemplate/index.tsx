@@ -1,4 +1,5 @@
 import {Colors} from '../../_settings';
+import {useSelector} from 'react-redux';
 import React, {ReactElement} from 'react';
 import {StatusBar} from '../../molecules';
 import {Keyboard, TouchableWithoutFeedback, ScrollView} from 'react-native';
@@ -14,9 +15,10 @@ import {
   ContainerTitleTopRated,
   ContainerMovieTopRated,
 } from './style';
+import THEME from '../../../themes';
 
 type Props = {
-  title?: ReactElement<any>;
+  toolbar?: ReactElement<any>;
   searchBar?: ReactElement<any>;
   recommendedCard?: ReactElement<any>;
   recommendedTitle?: ReactElement<any>;
@@ -25,19 +27,26 @@ type Props = {
 };
 
 const HomeTemplate: React.FC<Props> = ({
-  title,
+  toolbar,
   searchBar,
   recommendedCard,
   recommendedTitle,
   topRatedTitle,
   topRatedCard,
 }) => {
+  const stateRedux = useSelector(state => state.ModeApp);
   const handleRemoveKeyboard = () => Keyboard.dismiss();
+
   const renderHeader = () => {
     return (
       <TouchableWithoutFeedback onPress={handleRemoveKeyboard}>
-        <ContainerHeader>
-          <ContainerTitle>{title}</ContainerTitle>
+        <ContainerHeader
+          background={
+            stateRedux.isDark
+              ? THEME.darkTheme.backgroundHeader
+              : THEME.ligthTheme.backgroundHeader
+          }>
+          <ContainerTitle>{toolbar}</ContainerTitle>
           <ContainerSearch>{searchBar}</ContainerSearch>
         </ContainerHeader>
       </TouchableWithoutFeedback>
@@ -46,7 +55,12 @@ const HomeTemplate: React.FC<Props> = ({
 
   const renderBody = () => {
     return (
-      <ContainerBody>
+      <ContainerBody
+        background={
+          stateRedux.isDark
+            ? THEME.darkTheme.background
+            : THEME.ligthTheme.background
+        }>
         <ScrollView showsVerticalScrollIndicator={false}>
           <ContainerTitleRecommend>{recommendedTitle}</ContainerTitleRecommend>
           <ContainerMovieRecommend>
@@ -70,7 +84,7 @@ const HomeTemplate: React.FC<Props> = ({
   const renderUI = () => {
     return (
       <Wrapper>
-        <StatusBar backgroundColor={Colors.BLUE} mode={'light-content'} />
+        <StatusBar />
         {renderHeader()}
         {renderBody()}
       </Wrapper>

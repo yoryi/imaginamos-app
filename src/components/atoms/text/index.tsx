@@ -1,5 +1,7 @@
 import React from 'react';
 import {Text} from 'react-native';
+import THEME from '../../../themes';
+import {useSelector} from 'react-redux';
 
 type PropsText = {
   value?: string;
@@ -8,8 +10,18 @@ type PropsText = {
 };
 
 const TextApp: React.FC<PropsText> = ({value, style, numberLine}) => {
+  const stateRedux = useSelector(state => state.ModeApp);
   return (
-    <Text style={style} numberOfLines={numberLine}>
+    <Text
+      style={[
+        style,
+        {
+          color: stateRedux.isDark
+            ? THEME.darkTheme.text
+            : THEME.ligthTheme.text,
+        },
+      ]}
+      numberOfLines={numberLine}>
       {value}
     </Text>
   );

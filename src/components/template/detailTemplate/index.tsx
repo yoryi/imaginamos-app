@@ -1,5 +1,7 @@
 import React, {ReactElement} from 'react';
 import {ScrollView} from 'react-native';
+import {useSelector} from 'react-redux';
+import THEME from '../../../themes';
 import {
   Wrapper,
   ContainerBody,
@@ -22,7 +24,6 @@ type Props = {
   buttonWatch?: ReactElement<any>;
   backgroundPostes?: ReactElement<any>;
 };
-
 const DetailsTemplate: React.FC<Props> = ({
   title,
   ranting,
@@ -32,6 +33,7 @@ const DetailsTemplate: React.FC<Props> = ({
   buttonWatch,
   backgroundPostes,
 }) => {
+  const stateRedux = useSelector(state => state.ModeApp);
   const renderHeader = () => {
     return (
       <ContainerImage>
@@ -66,7 +68,12 @@ const DetailsTemplate: React.FC<Props> = ({
 
   const renderUI = () => {
     return (
-      <Wrapper>
+      <Wrapper
+        background={
+          stateRedux.isDark
+            ? THEME.darkTheme.background
+            : THEME.ligthTheme.background
+        }>
         {renderHeader()}
         {renderBody()}
       </Wrapper>

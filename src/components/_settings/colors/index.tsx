@@ -6,6 +6,7 @@ const APPCOLOR = {
   BLUE_50: '#8DBDDF',
   GRAY_90: '#6B747F',
   GRAY_50: '#A0A7AD',
+  GRAY_LIGTH: '#F8F8F8',
   BLUE_DARK: '#2D3848',
 };
 export default APPCOLOR;

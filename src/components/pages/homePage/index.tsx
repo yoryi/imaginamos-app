@@ -3,9 +3,8 @@ import React, {useEffect} from 'react';
 import {CardMovie} from '../../organisms';
 import {HomeTemplate} from '../../template';
 import {useNavigation} from '@react-navigation/native';
-import {SearchBar, TitleHome, ListItem} from '../../molecules';
+import {SearchBar, ToolbarHeader, ListItem} from '../../molecules';
 
-//Redux
 import {useDispatch, useSelector} from 'react-redux';
 import {fetchMovieRecomend} from '../../../redux/feature/movieRecomend';
 import {fetchMovieTopRated} from '../../../redux/feature/movieTopRated';
@@ -54,7 +53,7 @@ const HomeMovie: React.FC = () => {
     return (
       <HomeTemplate
         searchBar={<SearchBar placeholder={'Search'} />}
-        title={<TitleHome value={'Hello, what do you want to wacht ?'} />}
+        toolbar={<ToolbarHeader value={'Hello, what do you want to wacht ?'} />}
         topRatedCard={renderCardTopRated()}
         recommendedCard={renderCardRecomend()}
         topRatedTitle={<ListItem title={'TOP RATED'} all={'See All'} />}
