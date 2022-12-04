@@ -5,10 +5,12 @@ import {configureStore} from '@reduxjs/toolkit';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 //Reducers
+import ModeApp from '../feature/mode';
 import MovieRecomend from '../feature/movieRecomend';
 import MovieTopRated from '../feature/movieTopRated';
 
 const reducers = combineReducers({
+  ModeApp,
   MovieRecomend,
   MovieTopRated,
 });
@@ -16,7 +18,7 @@ const reducers = combineReducers({
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: [],
+  whitelist: ['ModeApp'],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);
